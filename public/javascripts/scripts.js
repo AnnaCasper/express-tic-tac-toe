@@ -37,29 +37,28 @@ var winCheck = function (inputArray) {
         alert('You Win!');
       };
     };
-
-    // var anotherArray = [];
-    // for (var k = 0; k < inputArray.length; k++) {
-    //   anotherArray.push(inputArray[k][k]);
-    //   var diagonalString = anotherArray.join(',');
-    //   if (diagonalString === 'x,x,x' || diagonalString === 'o,o,o') {
-    //     alert('You Win!');
-    //   };
-    // }
-    //
-    // var diagonalArray = [];
-    // //for (var k = inputArray.length - 1; k >= 0; k--) {
-    //   diagonalArray.push(inputArray[0][2]);
-    //   diagonalArray.push(inputArray[1][1]);
-    //   diagonalArray.push(inputArray[2][0]);
-    //   // console.log(inputArray[i][k]);
-    //   // diagonalArray.push(inputArray[i][k]);
-    //   //}
-    //   var anotherString = diagonalArray.join(',');
-    //   if (anotherString === 'x,x,x' || anotherString === 'o,o,o') {
-    //     alert('You Win!')
-    //   }
   }
+  var anotherArray = [];
+  for (var k = 0; k < inputArray.length; k++) {
+    anotherArray.push(inputArray[k][k]);
+    var diagonalString = anotherArray.join(',');
+    if (diagonalString === 'x,x,x' || diagonalString === 'o,o,o') {
+      alert('You Win!');
+    };
+  }
+
+  var diagonalArray = [];
+  //for (var k = inputArray.length - 1; k >= 0; k--) {
+    diagonalArray.push(inputArray[0][2]);
+    diagonalArray.push(inputArray[1][1]);
+    diagonalArray.push(inputArray[2][0]);
+    // console.log(inputArray[i][k]);
+    // diagonalArray.push(inputArray[i][k]);
+    //}
+    var anotherString = diagonalArray.join(',');
+    if (anotherString === 'x,x,x' || anotherString === 'o,o,o') {
+      alert('You Win!')
+    }
 }
 
 for (var i = 0; i < containerArray.length; i++) {
