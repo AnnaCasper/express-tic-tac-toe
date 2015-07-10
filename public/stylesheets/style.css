@@ -7,11 +7,6 @@ a {
   color: #00B7FF;
 }
 
-div {
-  border: solid black 1px;
-
-}
-
 .container {
   width: 610px;
   height: 610px;
@@ -22,4 +17,15 @@ div {
   width:200px;
   height:200px;
   display: inline-block;
+  overflow:auto;
+}
+
+#four, #five, #six {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+#two, #five, #eight {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 }
