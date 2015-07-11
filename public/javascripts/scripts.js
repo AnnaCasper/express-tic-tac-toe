@@ -23,13 +23,13 @@ var gameState = [
 
 var winCheck = function (inputArray) {
 
+    var newArray = [[], [], []];
   for (var i = 0; i < inputArray.length; i++) {
     var inputString = inputArray[i].join(',');
     if (inputString === 'x,x,x' || inputString === 'o,o,o') {
       alert('You Win!');
     };
 
-    var newArray = [[], [], []];
     for (var j = 0; j < inputArray[i].length; j++) {
       newArray[j].push(inputArray[i][j]);
       var verticalString = newArray[j].join(',');
