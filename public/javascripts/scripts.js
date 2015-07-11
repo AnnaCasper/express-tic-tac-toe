@@ -17,13 +17,21 @@ var youWin = function () {
 
 var winCheck = function (inputArray) {
   var newArray = [[], [], []];
-  //check all horizontals
+  var anotherArray = [];
+  var diagonalArray = [];
   for (var i = 0; i < inputArray.length; i++) {
+    //check all horizontals
     var inputString = inputArray[i].join(',');
     if (inputString === 'x,x,x' || inputString === 'o,o,o') {
       youWin();
     }
-    //check all verticalls...currently broken
+    //check left to right diagonal
+    anotherArray.push(inputArray[i][i]);
+    var diagonalString = anotherArray.join(',');
+    if (diagonalString === 'x,x,x' || diagonalString === 'o,o,o') {
+      youWin();
+    }
+    //check all verticalls
     for (var j = 0; j < inputArray[i].length; j++) {
       newArray[j].push(inputArray[i][j]);
       var verticalString = newArray[j].join(',');
@@ -32,18 +40,11 @@ var winCheck = function (inputArray) {
       }
     }
   }
-  //check left to right diagonal
-  var anotherArray = [];
-  for (var k = 0; k < inputArray.length; k++) {
-    anotherArray.push(inputArray[k][k]);
-    var diagonalString = anotherArray.join(',');
-    if (diagonalString === 'x,x,x' || diagonalString === 'o,o,o') {
-      youWin();
-    }
-  }
-  //check right to left diagonal
-  var diagonalArray = [];
-  //hard coded, couldn't get for loop to work
+
+  // check right to left diagonal
+  //
+  // check right to left diagonal
+  // hard coded, couldn't get for loop to work  
   diagonalArray.push(inputArray[0][2]);
   diagonalArray.push(inputArray[1][1]);
   diagonalArray.push(inputArray[2][0]);
