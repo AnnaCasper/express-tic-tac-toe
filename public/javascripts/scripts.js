@@ -31,6 +31,20 @@ var youWin = function () {
   }
 }
 
+var gameTie = function () {
+  if (confirm('Tie Game! Click "OK" to reset')) {
+    counterArray = [];
+    xArray = [];
+    oArray = [];
+    gameState = [
+      ['one', 'two', 'three'],
+      ['four', 'five', 'six'],
+      ['seven', 'eight', 'nine']
+    ];
+    gameLayoutReset();
+  }
+}
+
 var winCheck = function (inputArray) {
   var newArray = [[], [], []];
   var anotherArray = [];
@@ -80,8 +94,13 @@ for (var i = 0; i < containerArray.length; i++) {
           }
         }
       }
-      xArray.push(this.id);
-      this.firstChild.src = '../images/giant-x.jpg';
+      if (this.firstChild.src) {
+        counterArray.pop();
+      }
+      else {
+        xArray.push(this.id);
+        this.firstChild.src = '../images/giant-x.jpg';
+      }
     } else {
       for (var k = 0; k < gameState.length; k++) {
         for (var j = 0; j < gameState[k].length; j++) {
@@ -90,9 +109,19 @@ for (var i = 0; i < containerArray.length; i++) {
           }
         }
       }
-      oArray.push(this.id);
-      this.firstChild.src = '../images/giant-o.gif';
+      if (this.firstChild.src) {
+        counterArray.pop();
+      }
+      else {
+        oArray.push(this.id);
+        this.firstChild.src = '../images/giant-o.gif';
+      }
     }
-    winCheck(gameState);
+    if (counterArray.length >= 9) {
+      gameTie();
+    }
+    else {
+      winCheck(gameState);
+    }
   });
 };
