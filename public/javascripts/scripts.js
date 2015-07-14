@@ -9,9 +9,25 @@ var gameState = [
   ['seven', 'eight', 'nine']
 ];
 
+var gameLayoutReset = function () {
+  for (var i = 0; i < containerArray.length; i++) {
+    containerArray[i].removeChild(containerArray[i].childNodes[0]);
+    var image = document.createElement('img');
+    containerArray[i].appendChild(image);
+  }
+}
+
 var youWin = function () {
   if (confirm('You Win! Click "OK" to reset game')) {
-    console.log('do something in here to reset game');
+    counterArray = [];
+    xArray = [];
+    oArray = [];
+    gameState = [
+      ['one', 'two', 'three'],
+      ['four', 'five', 'six'],
+      ['seven', 'eight', 'nine']
+    ];
+    gameLayoutReset();
   }
 }
 
@@ -42,9 +58,7 @@ var winCheck = function (inputArray) {
   }
 
   // check right to left diagonal
-  //
-  // check right to left diagonal
-  // hard coded, couldn't get for loop to work  
+  // hard coded, couldn't get for loop to work
   diagonalArray.push(inputArray[0][2]);
   diagonalArray.push(inputArray[1][1]);
   diagonalArray.push(inputArray[2][0]);
