@@ -57,7 +57,6 @@ var tieGame = function(){
 };
 
 var resetGame = function(){
-  var newArray = [[], [], []];
   var counterArray = [];
   var xArray = [];
   var oArray = [];
@@ -66,11 +65,12 @@ var resetGame = function(){
     ['four', 'five', 'six'],
     ['seven', 'eight', 'nine']
   ];
+
   for (var i = 0; i < containerArray.length; i++) {
     containerArray[i].removeChild(containerArray[i].childNodes[0]);
     var image = document.createElement('img');
     containerArray[i].appendChild(image);
-  }
+  };
 };
 
 for (var i = 0; i < containerArray.length; i++) {
@@ -103,6 +103,14 @@ for (var i = 0; i < containerArray.length; i++) {
       } else{
         oArray.push(this.id);
         this.firstChild.src = '../images/giant-o.gif';
+      }
+    }
+    if(counterArray.length >= 9){
+      var winner = winCheck(gameState)
+      if(winner){
+        winCheck(gameState)
+      } else {
+        tieGame();
       }
     }
     winCheck(gameState);
